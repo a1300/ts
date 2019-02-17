@@ -60,6 +60,10 @@ declare namespace LibP2p {
     };
 
     export type Events = 'peer:connect' | 'peer:disconnect' | 'peer:discovery' | 'start' | 'stop' | 'error';
+
+    export type PeerRouting = {
+      findPeer: (id: PeerId, options: { maxTimeout?: number } | null, callback: (err: Error | null, result: PeerInfo) => void) => void;
+    }
 }
 
 declare class LibP2p {
@@ -69,6 +73,7 @@ declare class LibP2p {
 
     readonly peerInfo: PeerInfo;
     readonly peerBook: PeerBook;
+    readonly peerRouting: LibP2p.PeerRouting;
 
     dial(peerInfo: PeerInfo, cb: (error: Error | null) => any): void;
     dialProtocol(peerInfo: PeerInfo | Multiaddr.Multiaddr, protocol: string, cb: (error: Error | null, conn?: LibP2pConnection) => any): void;

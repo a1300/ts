@@ -42,5 +42,5 @@ declare class PeerInfo {
 }
 
 declare module 'peer-info' {
-    export default PeerInfo;
+    export = PeerInfo;
 }

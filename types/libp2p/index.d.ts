@@ -59,7 +59,7 @@ declare namespace LibP2p {
         peerInfo: PeerInfo,
     };
 
-    export type Events = 'peer:connect' | 'peer:disconnect' | 'peer:discovery' | 'start' | 'stop';
+    export type Events = 'peer:connect' | 'peer:disconnect' | 'peer:discovery' | 'start' | 'stop' | 'error';
 }
 
 declare class LibP2p {

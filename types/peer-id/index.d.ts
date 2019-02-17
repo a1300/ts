@@ -27,7 +27,7 @@ declare class PeerId {
   static createFromB58String(str: string): PeerId;
   static createFromBytes(buf: Buffer): PeerId;
   static createFromHexString(str: string): PeerId;
-  static createFromJSON(json: JSON, callback: PeerId.CreateCb): PeerId;
+  static createFromJSON(json: PeerId.JSON, callback: PeerId.CreateCb): PeerId;
   static createFromPubKey(key: Buffer): PeerId;
   static createFromPrivKey(key: Buffer, cb: PeerId.CreateCb): void;
 

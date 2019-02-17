@@ -92,5 +92,5 @@ declare class LibP2p {
 }
 
 declare module 'libp2p' {
-  export default LibP2p;
+  export = LibP2p;
 }

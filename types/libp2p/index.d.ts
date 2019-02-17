@@ -68,6 +68,7 @@ declare class LibP2p {
     constructor(options: LibP2p.Options);
 
     readonly peerInfo: PeerInfo;
+    readonly peerBook: PeerBook;
 
     dial(peerInfo: PeerInfo, cb: (error: Error | null) => any): void;
     dialProtocol(peerInfo: PeerInfo | Multiaddr.Multiaddr, protocol: string, cb: (error: Error | null, conn?: LibP2pConnection) => any): void;

@@ -6,20 +6,19 @@
 /// <reference types="node"/>
 
 declare module 'sodium' {
-type SodiumKeyPair = {
-    getPublicKey (): {
-        baseBuffer: Buffer
-    }
-}
-type Sodium = {
-    Key: {
-        Sign: {
-            fromSeed (seed: Buffer): SodiumKeyPair
-        }
-    }
+
+  interface KeyPair {
+    publicKey: Buffer;
+    secretKey: Buffer;
+  }
+
+  interface API {
+    crypto_sign_seed_keypair: (hash: Buffer) => KeyPair;
+    crypto_sign_detached: (hash: Buffer, privateKey: Buffer) => Buffer;
+    crypto_sign_verify_detached: (hash: Buffer, signature: Buffer, publicKey: Buffer) => boolean;
+  }
+
+  export const api: API;
+
 }
 
-const sodium: Sodium;
-
-export default sodium;
-}

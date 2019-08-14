@@ -45,7 +45,7 @@ declare namespace LibP2p {
             };
         };
         pubsub?: {
-            enabledß: boolean;
+            enabled?: boolean;
         };
     };
 
@@ -55,6 +55,7 @@ declare namespace LibP2p {
         dht?: typeof LibP2pKadDht;
         peerDiscovery: Array<LibP2pBootstrap | LibP2pMdns>;
         transport: LibP2pTransport[];
+        pubsub: any;
     };
 
     export type OptionsConnectionManager = {
@@ -88,11 +89,12 @@ declare namespace LibP2p {
 
     export type PubSub = {
         subscribe: (topic: string, callback: any, finishedCb: any) => void;
-        publish: (
+        publish(
             topic: string,
             data: Buffer,
             finishedCb: (error: Error | null) => void
-        ) => void;
+        ): void;
+        publish(topic: string, data: Buffer): void;
     };
 }
 

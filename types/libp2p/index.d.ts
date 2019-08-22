@@ -46,6 +46,9 @@ declare namespace LibP2p {
         };
         pubsub?: {
             enabled?: boolean;
+            emitSelf?: boolean;
+            signMessages?: boolean;
+            strictSigning?: boolean;
         };
     };
 
